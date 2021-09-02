@@ -36,8 +36,8 @@ Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends},
  gstreamer1.0-nice,
  kms-core (>= 7.0.0),
- openh264-gst-plugin,
  openwebrtc-gst-plugins
+Recommends: openh264-gst-plugin
 Description: Kurento Elements module
  Kurento Elements module - Binary libraries.
 
