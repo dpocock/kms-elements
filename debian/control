@@ -20,11 +20,11 @@ Build-Depends: debhelper (>= 9),
  libglibmm-2.4-dev,
  libgstreamer1.0-dev,
  libgstreamer-plugins-base1.0-dev,
+ libgstreamer-plugins-bad1.0-dev,
  libnice-dev,
  libsigc++-2.0-dev,
  libsoup2.4-dev,
- libssl-dev,
- openwebrtc-gst-plugins-dev
+ libssl-dev
 Standards-Version: 4.0.0
 Vcs-Git: https://github.com/Kurento/kms-elements.git
 Vcs-Browser: https://github.com/Kurento/kms-elements
@@ -57,8 +57,7 @@ Depends: kms-elements (= ${binary:Version}),
  libnice-dev,
  libsigc++-2.0-dev,
  libsoup2.4-dev,
- libssl-dev,
- openwebrtc-gst-plugins-dev
+ libssl-dev
 Description: Kurento Elements module
  Kurento Elements module - Development files.
 
