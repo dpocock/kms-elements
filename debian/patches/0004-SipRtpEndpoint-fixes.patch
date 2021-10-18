@@ -1,0 +1,24 @@
+--- a/src/server/implementation/objects/FacadeRtpEndpointImpl.cpp.orig	2021-10-19 00:01:50.649095939 +0200
++++ b/src/server/implementation/objects/FacadeRtpEndpointImpl.cpp	2021-10-19 00:00:59.674373637 +0200
+@@ -248,6 +248,11 @@
+ 	return offer;
+ }
+ 
++std::string FacadeRtpEndpointImpl::generateOffer (std::shared_ptr<OfferOptions> options)
++{
++   generateOffer (); // FIXME, use options
++}
++
+ static std::vector<GstSDPMedia*>
+ getMediasFromSdp (GstSDPMessage *sdp)
+ {
+--- a/src/server/implementation/objects/FacadeRtpEndpointImpl.hpp.orig	2021-10-19 00:02:00.920032549 +0200
++++ b/src/server/implementation/objects/FacadeRtpEndpointImpl.hpp	2021-10-18 23:58:53.571430495 +0200
+@@ -87,6 +87,7 @@
+   int getMaxAudioRecvBandwidth () override;
+   void setMaxAudioRecvBandwidth (int maxAudioRecvBandwidth) override;
+   std::string generateOffer () override;
++  std::string generateOffer (std::shared_ptr<OfferOptions> options) override;
+   std::string processOffer (const std::string &offer) override;
+   std::string processAnswer (const std::string &answer) override;
+   std::string getLocalSessionDescriptor () override;
