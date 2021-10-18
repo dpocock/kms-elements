@@ -1,11 +1,5 @@
-commit 4a438c81ea260ce087c18fe111b19058ec4c9466
-Author: Daniel Pocock <daniel@pocock.pro>
-Date:   Wed Sep 22 22:13:50 2021 +0200
-
-    basertpendpoint: add externalIPv4 and externalIPv6 parameters, like WebRtcEndpoint
-
 diff --git a/src/gst-plugins/rtpendpoint/kmsrtpendpoint.c b/src/gst-plugins/rtpendpoint/kmsrtpendpoint.c
-index 200af35..a17b237 100644
+index 091de48..2400ac0 100644
 --- a/src/gst-plugins/rtpendpoint/kmsrtpendpoint.c
 +++ b/src/gst-plugins/rtpendpoint/kmsrtpendpoint.c
 @@ -35,7 +35,7 @@
@@ -309,7 +303,7 @@ index 200af35..a17b237 100644
          GST_ERROR_OBJECT (self,
              "Bad Base64-decoded master key size: got %lu, expected %lu or %lu",
              key_data_size, KMS_SRTP_CIPHER_AES_CM_128_SIZE,
-@@ -1168,7 +1199,8 @@ kms_rtp_endpoint_init (KmsRtpEndpoint * self)
+@@ -1168,6 +1199,7 @@ kms_rtp_endpoint_init (KmsRtpEndpoint * self)
  
    g_object_set (G_OBJECT (self), "bundle",
        FALSE, "rtcp-mux", FALSE, "rtcp-nack", TRUE, "rtcp-remb", TRUE,
@@ -318,4 +312,3 @@ index 200af35..a17b237 100644
 +      NULL);
    /* FIXME: remove max-video-recv-bandwidth when it b=AS:X is in the SDP offer */
  }
- 
