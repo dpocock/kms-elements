@@ -1,3 +1,9 @@
+kms-elements (7.0.0-1~debify11+4) debify-bullseye; urgency=medium
+
+  * Add patch for SipRtpEndpoint.
+
+ -- Daniel Pocock <daniel@pocock.pro>  Sat, 23 Oct 2021 22:42:40 +0200
+
 kms-elements (7.0.0-1~debify11+3) debify-bullseye; urgency=medium
 
   * Add patch for SipRtpEndpoint.
