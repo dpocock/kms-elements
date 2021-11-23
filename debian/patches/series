@@ -1,5 +1,3 @@
 0001-cmake-boost-libs.patch
 00015-SipRtpEndpoint.patch
 0002-RTPEndpoint-externalIP.patch
-0004-SipRtpEndpoint-fixes.patch
-0005-SipRtpEndpoint-externalIP.patch
