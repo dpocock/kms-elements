@@ -319,6 +319,20 @@ kms_rtp_endpoint_set_addr (KmsRtpEndpoint * self)
 {
   GList *ips, *l;
   gboolean done = FALSE;
+  gboolean use_ipv6;
+  gchar *external_ip;
+
+  g_object_get (self, "use-ipv6", &use_ipv6, NULL);
+
+  g_object_get (self, use_ipv6 ? "external-ipv6" : "external-ipv4",
+      &external_ip, NULL);
+
+  if (external_ip != NULL) {
+    g_object_set (self, "addr", external_ip, NULL);
+    g_free (external_ip);
+    done = TRUE;
+    return;
+  }
 
   ips = nice_interfaces_get_local_ips (FALSE);
   for (l = ips; l != NULL && !done; l = l->next) {
@@ -339,9 +353,7 @@ kms_rtp_endpoint_set_addr (KmsRtpEndpoint * self)
         case G_SOCKET_FAMILY_IPV4:
         {
           gchar *addr_str;
-          gboolean use_ipv6;
 
-          g_object_get (self, "use-ipv6", &use_ipv6, NULL);
           if (is_ipv6 != use_ipv6) {
             GST_DEBUG_OBJECT (self, "Skip address (wanted IPv6: %d)", use_ipv6);
             break;
@@ -1168,7 +1180,8 @@ kms_rtp_endpoint_init (KmsRtpEndpoint * self)
 
   g_object_set (G_OBJECT (self), "bundle",
       FALSE, "rtcp-mux", FALSE, "rtcp-nack", TRUE, "rtcp-remb", TRUE,
-      "max-video-recv-bandwidth", 0, NULL);
+      "max-video-recv-bandwidth", 0, "external-ipv4", 0, "external-ipv6", 0,
+      NULL);
   /* FIXME: remove max-video-recv-bandwidth when it b=AS:X is in the SDP offer */
 }
 
