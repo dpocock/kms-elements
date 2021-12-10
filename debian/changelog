@@ -1,3 +1,9 @@
+kms-elements (7.0.0+dp1-1~debify11+1) debify-bullseye; urgency=medium
+
+  * Update for v7.0.0+dp1-1~debify11+1
+
+ -- Daniel Pocock <daniel@pocock.pro>  Fri, 10 Dec 2021 14:53:54 +0100
+
 kms-elements (7.0.0-1~debify11+5) debify-bullseye; urgency=medium
 
   * Update patch for SipRtpEndpoint.
